@@ -1,5 +1,7 @@
 package dto;
 
+import utils.Validation;
+
 /**
  * ResponseDTO (DTO - Output)
  * -----------------------------------
@@ -18,6 +20,18 @@ public class ResponseDTO {
     
     // Constructor
     public ResponseDTO(String studentName, String course, int num) {
+        
+        // Validate StudentName: không rỗng
+        Validation.checkString(studentName);
+        
+        // Validate Course: không rỗng
+        Validation.checkString(course);
+        
+        // Validate Num: không được âm
+        if (num < 0) {
+            throw new IllegalArgumentException("Num must not be negative!");
+        }
+        
         this.studentName = studentName;
         this.course = course;
         this.num = num;

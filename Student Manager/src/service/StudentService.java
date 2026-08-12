@@ -73,8 +73,8 @@ public class StudentService {
         // Duyệt toàn bộ Sinh viên trong hệ thống
         for (Student s : repository.getAll()) {
             
-            // Nếu tên chứa từ khóa tìm kiếm
-            if (s.getName().toLowerCase().contains(keyword.toLowerCase())) {
+            // Nếu id chứa từ khóa tìm kiếm
+            if (s.getId().toLowerCase().contains(keyword.toLowerCase())) {
                 
                 // Lấy từng học kỳ của Sinh viên
                 for (Semester sem : s.getSemesters()) {

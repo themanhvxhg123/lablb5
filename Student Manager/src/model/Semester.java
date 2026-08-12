@@ -1,5 +1,7 @@
 package model;
 
+import utils.Validation;
+
 /**
  * Semester (Model Layer)
  * ---------------------------------
@@ -16,6 +18,14 @@ public class Semester {
     
     // Constructor
     public Semester(String semester, String course) {
+        
+        // Validate Semester: không rỗng
+        Validation.checkString(semester);
+        
+        // Validate Course: không rỗng và đúng định dạng (Java, .Net, C/C++)
+        Validation.checkString(course);
+        Validation.checkCourse(course);
+        
         this.semester = semester;
         this.course = course;
     }

@@ -1,5 +1,7 @@
 package dto;
 
+import utils.Validation;
+
 /**
  * RequestDTO (DTO - Input)
  * -----------------------------------
@@ -36,18 +38,36 @@ public class RequestDTO {
 
     // Setter
     public void setId(String id) {
+        
+        // Validate ID: không rỗng và đúng format S + 2 số
+        Validation.checkString(id);
+        Validation.checkIdFormat(id);
+        
         this.id = id;
     }
 
     public void setName(String name) {
+        
+        // Validate Name: không rỗng
+        Validation.checkString(name);
+        
         this.name = name;
     }
 
     public void setSemester(String semester) {
+        
+        // Validate Semester: không rỗng
+        Validation.checkString(semester);
+        
         this.semester = semester;
     }
 
     public void setCourse(String course) {
+        
+        // Validate Course: không rỗng và đúng định dạng (Java, .Net, C/C++)
+        Validation.checkString(course);
+        Validation.checkCourse(course);
+        
         this.course = course;
     }
 }

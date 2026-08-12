@@ -2,7 +2,6 @@ package view;
 
 import constants.Message;
 import dto.ResponseDTO;
-
 import java.util.List;
 
 /**
@@ -22,6 +21,12 @@ public class StudentView {
     
     // Nhận danh sách từ Controller
     public void setStudent(List<ResponseDTO> listStudents) {
+        
+        // Validate danh sách: không được null
+        if (listStudents == null) {
+            throw new IllegalArgumentException("Student list must not be null!");
+        }
+        
         this.listStudents = listStudents;
     }
     

@@ -99,7 +99,7 @@ public class Main {
                     case 2:
                         
                         // Nhập keyword cần search
-                        System.out.print("Enter name to search: ");
+                        System.out.print("Enter id to search: ");
                         String keyword = sc.nextLine();
                         
                         // Validate keyword
