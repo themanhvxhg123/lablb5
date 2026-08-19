@@ -32,9 +32,11 @@ public class Classroom implements Comparable<Classroom> {
         return building;
     }
 
-    public void setBuilding(String building) {
+    public void setBuilding(String building) throws Exception {
         if(building.matches(Constant.REGBUILDING))
             this.building = building;
+        else
+            throw new Exception("Building must be: alpha, beta, delta, epsilon");
     }
 
     public int getCapacity() {

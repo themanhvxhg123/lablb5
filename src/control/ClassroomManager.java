@@ -35,6 +35,18 @@ public class ClassroomManager {
         return null;
     }
     
+    // Tìm danh sách phòng theo tòa nhà
+    public ArrayList<Classroom> findByBuilding(String building) {
+        ArrayList<Classroom> result = new ArrayList<>();
+        building = building.toLowerCase().trim();
+        for (Classroom classroom : lstClassroom) {
+            if (classroom.getBuilding().toLowerCase().equals(building)) {
+                result.add(classroom);
+            }
+        }
+        return result;
+    }
+    
     // Thêm phòng học
     public void addClassroom(Classroom classroom) throws Exception {
         if (findById(classroom.getRoomId()) == null) {
@@ -57,6 +69,17 @@ public class ClassroomManager {
         if (classroom == null) {
             throw new Exception("Room Id not exist");
         } else {
+            classroom.setCapacity(capacity);
+        }
+    }
+    
+    // Cập nhật thông tin phòng học bao gồm cả tòa nhà
+    public void updateClassroom(String roomID, String building, int capacity) throws Exception {
+        Classroom classroom = findById(roomID);
+        if (classroom == null) {
+            throw new Exception("Room Id not exist");
+        } else {
+            classroom.setBuilding(building);
             classroom.setCapacity(capacity);
         }
     }
